@@ -51,5 +51,11 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+# --- Team & IDE Specific ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
 # debug information files
 *.dwo
