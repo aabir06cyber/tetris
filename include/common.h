@@ -1,6 +1,6 @@
 #pragma once
-#define gridrow 10  // Grid Rows
-#define viscols 20  // Visible Height
+#define viscols 10  // Grid Rows
+#define gridrows 20  // Visible Height
 #define totalheight 40  // Total Height of Board (20-cells buffer)
 
 #define tile_size 40    // 40px of each tetromino
