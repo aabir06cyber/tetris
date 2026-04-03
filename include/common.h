@@ -10,16 +10,16 @@ extern int offset_y;    // ***Defined in tetris_main.c by Srijato
 
 // Game State Management
 enum GameState {MENU, PLAYING, PAUSED, GAMEOVER};
-extern enum GameState gstate;   // Current Game State   
+extern enum GameState gstate;   // Current Game State
 
 // Tetromino Definitions
-enum TetrominoType {I, J, L, O, S, T, Z};         
+enum TetrominoType {I, J, L, O, S, T, Z};
 
 typedef struct
 {
     int x;  // X position of the tetromino on the grid
     int y;  // Y position of the tetromino on the grid
-    enum TetrominoType type; // Type of the tetromino   
+    enum TetrominoType type; // Type of the tetromino
     int rotation;   // Rotation state (0-3)
 } Tetromino;
 

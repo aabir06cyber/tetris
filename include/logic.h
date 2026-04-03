@@ -1,6 +1,6 @@
 #pragma once
 #include "common.h"
-#include <stdbool.h>    
+#include <stdbool.h>
 
 // Board Management
 void InitBoard();
