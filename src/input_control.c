@@ -1,5 +1,6 @@
 #include "common.h"
 #include "logic.h"
+#include "renderer.h"
 #include "raylib.h"
 #define L KEY_LEFT //for shifting the block to left
 #define R KEY_RIGHT //foor shifting the blok too right
