@@ -59,7 +59,7 @@ void renderFrame(){//i will define it now
     }
 
 int main(){
-    InitWindow(800,800,"Tetris");//initializes the tetris window 
+    InitWindow(1000,1000,"Tetris");//initializes the tetris window 
     SetTargetFPS(frame_time);//frames per second
 
     InitBoard();

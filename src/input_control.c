@@ -136,16 +136,17 @@ if(IsKeyPressed(S)){
 while(isValidMove(current_piece,0,1,current_piece.rotation)){
     current_piece.y++;
 }
-
-}
 LockPiece(current_piece);
-ClearFullRows();
 SpawnNext();
+}
+
+ClearFullRows();
+
 
  if(IsKeyPressed(KEY_P)){// to Pause
         gstate = PAUSED;
     }
-if(gstate == PAUSED && IsKeyPressed(KEY_ENTER)){// to resume
+if(gstate == PAUSED && IsKeyPressed(KEY_P)){// to resume
          gstate = PLAYING;
 
     }
