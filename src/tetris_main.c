@@ -11,6 +11,9 @@ float frame_time = 60;
 
 double lastTime=0;
 
+enum GameState gstate;
+enum GameStats gamestats;
+
 void handleGravity(){
     double currentTime = GetTime() * 1000.0;
     if((currentTime-lastTime)>=timeDelay){//after a certain time the tetromino falls a certain distance 
