@@ -1,12 +1,12 @@
 #include "common.h"
 #include "logic.h"
 #include "raylib.h"
-#define KEY_LEFT L //for shifting the block to left
-#define KEY_RIGHT R //foor shifting the blok too right
-#define KEY_UP C   // foor rotating the block clock wise
-#define KEY_Z CC   // foor rotating thr block counterclockwise
-#define KEY_DOWN D //Soft drop
-#define KEY_SPACE S //for hard drop 
+#define L KEY_LEFT //for shifting the block to left
+#define R KEY_RIGHT //foor shifting the blok too right
+#define C KEY_UP   // foor rotating the block clock wise
+#define CC KEY_Z   // foor rotating thr block counterclockwise
+#define D KEY_DOWN //Soft drop
+#define S KEY_SPACE //for hard drop 
 
 int DASR =15;
 int dasrotTimer = 0;
