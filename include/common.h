@@ -33,6 +33,7 @@ typedef struct
 extern GameStats gamestats;  // Global game statistics
 
 extern int board[totalheight][viscols];
+extern const int shapes[7][4][4][4];
 extern Tetromino current_piece; // Current falling piece
 extern Tetromino next_piece;    // Next piece in queue
 extern float frame_time;
