@@ -3,11 +3,11 @@
 #include"logic.h"
 #include"renderer.h"
 #include "raylib.h"
-extern int offset_x=100;    // ***Defined in tetris_main.c by Srijato
-extern int offset_y=50;    // ***Defined in tetris_main.c by Srijato
+int offset_x=100;    // ***Defined in tetris_main.c by Srijato
+int offset_y=50;    // ***Defined in tetris_main.c by Srijato
 
 #define timeDelay 500 //timeDelay is set to 500 ms 
-int frame_time = 60;
+float frame_time = 60;
 
 double lastTime=0;
 
