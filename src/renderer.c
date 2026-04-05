@@ -10,7 +10,7 @@
 // 1 = block exists, 0 = empty
 // ------------------------------------------------------------
 
-int tetrominoShapes[7][4][4][4] = {
+/*int shapes[7][4][4][4] = {
     // I
     {
         {
@@ -206,7 +206,7 @@ int tetrominoShapes[7][4][4][4] = {
             {0,0,0,0}
         }
     }
-};
+};*/
 
 //colors for each pieces
 //color is the datatype of the array piceceOlors which has 7 colors in it 
@@ -242,7 +242,7 @@ Color pieceColors[7] = {
 //basis whether there is a tetromino block or not 
 int PieceCellExists(Tetromino piece, int row, int col)
 {
-    return tetrominoShapes[piece.type][piece.rotation][row][col];
+    return shapes[piece.type][piece.rotation][row][col];
 }
 
 //drawing each block 
@@ -345,7 +345,7 @@ void DrawNextPiecePreview()
     {
         for (int col = 0; col < 4; col++)
         {
-            if (tetrominoShapes[next_piece.type][0][row][col])
+            if (shapes[next_piece.type][0][row][col])
             {
                 int x = previewX + col * tile_size;
                 int y = previewY + row * tile_size;
