@@ -166,7 +166,7 @@ void MenuInputControl(){
     }
     if(IsKeyPressed(KEY_Q)){
         gstate = GAMEOVER;
-        DrawGameStatistics();
+        GameStatsDisplay();
         if(IsKeyPressed(KEY_ENTER)) gstate = MENU;
         //display score and go to menu after acknowledgement
     }
