@@ -6,13 +6,14 @@
 int offset_x=100;    // ***Defined in tetris_main.c by Srijato
 int offset_y=50;    // ***Defined in tetris_main.c by Srijato
 
-#define timeDelay 500 //timeDelay is set to 500 ms 
+#define timeDelay 500 //timeDelay is set to 500 ms
+#define GameState enum GameState
 float frame_time = 60;
 
 double lastTime=0;
 
-enum GameState gstate;
-enum GameStats gamestats;
+GameState gstate;
+GameStats gamestats;
 
 void handleGravity(){
     double currentTime = GetTime() * 1000.0;
