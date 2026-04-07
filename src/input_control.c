@@ -145,10 +145,18 @@ ClearFullRows();
 
  if(IsKeyPressed(KEY_P)){// to Pause
         gstate = PAUSED;
+        GameStatsDisplay();
     }
-if(gstate == PAUSED && IsKeyPressed(KEY_P)){// to resume
-         gstate = PLAYING;
+if(IsKeyPressed(KEY_P)){// to resume
+    if(gstate= PAUSED){     
+    gstate = PLAYING;}
 
+    }
+    if(IsKeyPressed(KEY_Q)){                                                           
+        gstate = GAMEOVER;
+        GameStatsDisplay();
+        if(IsKeyPressed(KEY_ENTER)) gstate = MENU;
+        //display score and go to menu after acknowledgement
     }
 
 }
