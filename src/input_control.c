@@ -136,7 +136,6 @@ void PlayerInputControl()
         }
         ClearFullRows();
     }
-<<<<<<< HEAD
     if(IsKeyPressed(KEY_P)){// to Pause
             if (gstate == PLAYING)
                 gstate = PAUSED;
@@ -149,42 +148,6 @@ void PlayerInputControl()
         if(IsKeyPressed(KEY_ENTER)) gstate = MENU;
         //display score and go to menu after acknowledgement
     }
-=======
-}
-if(IsKeyReleased(D)){
-    dasTimer = 0;
-    arrTimer = 0;
-}
-
-// HARD DROP
-if(IsKeyPressed(S)){
-while(isValidMove(current_piece,0,1,current_piece.rotation)){
-    current_piece.y++;
-}
-LockPiece(current_piece);
-SpawnNext();
-}
-
-ClearFullRows();
-
-
- if(IsKeyPressed(KEY_P)){// to Pause
-        gstate = PAUSED;
-        GameStatsDisplay();
-    }
-if(IsKeyPressed(KEY_P)){// to resume
-    if(gstate= PAUSED){     
-    gstate = PLAYING;}
-
-    }
-    if(IsKeyPressed(KEY_Q)){                                                           
-        gstate = GAMEOVER;
-        GameStatsDisplay();
-        if(IsKeyPressed(KEY_ENTER)) gstate = MENU;
-        //display score and go to menu after acknowledgement
-    }
-
->>>>>>> d3cc57261290bba417aff32f99cbe8215fcf2fb6
 }
 
 //
