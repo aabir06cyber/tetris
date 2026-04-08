@@ -1,0 +1,11 @@
+        THIS FILE CONTAINS PLAYER RECORDS
+===================================================
+CURRENT HIGH SCORE = 
+TOTAL TIMES GAME HAS BEEN PLAYED = 
+TOTAL PLAY TIME = 
+===================================================
+DATE    TIME    SCORE   HIGHEST_LEVEL
+    114      1
+    117      1
+    117      1
+    111      1
