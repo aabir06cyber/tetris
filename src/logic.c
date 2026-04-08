@@ -223,7 +223,8 @@ int ClearFullRows()
     // Update score based on the number of lines cleared at once, and also update the level based on total lines cleared
     if (cleared == 1) gamestats.score += 100 * gamestats.level;
     else if (cleared == 2) gamestats.score += 300 * gamestats.level;
-    else if (cleared == 3) gamestats.score += 800 * gamestats.level;
+    else if (cleared == 3) gamestats.score += 500 * gamestats.level;
+    else if (cleared == 4) gamestats.score += 800 * gamestats.level;
     gamestats.level = (gamestats.lines_cleared / 10) + 1;   // Level increases every 10 lines cleared
     return cleared;
 }
