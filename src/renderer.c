@@ -336,8 +336,8 @@ void DrawNextPiecePreview()
     int previewX = offset_x + viscols * tile_size + 60;
     int previewY = offset_y + 100;
     //DrawrectangleLines(X,Y,width,height,color)
-    DrawText("NEXT", previewX, previewY - 40, 30, WHITE);
-    DrawRectangleLines(previewX - 10, previewY - 10, 180, 180, WHITE);
+    DrawText("NEXT", previewX+10, previewY - 40, 30, WHITE);
+    DrawRectangleLines(previewX + 10, previewY - 10, 180, 180, WHITE);
 
     Color color = pieceColors[next_piece.type];
 
@@ -349,7 +349,7 @@ void DrawNextPiecePreview()
             {
                 int x = previewX + col * tile_size;
                 int y = previewY + row * tile_size;
-                DrawBlock(x, y, color);
+                DrawBlock(x+27, y, color);
             }
         }
     }
@@ -448,5 +448,5 @@ void DrawGameOver()
     DrawRectangle(0, 0, 900, 900, Fade(BLACK, 0.7f));
     DrawText("GAME OVER", 220, 220, 60, RED);
     DrawText(TextFormat("Final Score: %d", gamestats.score), 250, 320, 35, WHITE);
-    DrawText("Press ENTER to Restart", 190, 400, 35, YELLOW);
+    DrawText("Press R to Restart", 190, 400, 35, YELLOW);
 }
