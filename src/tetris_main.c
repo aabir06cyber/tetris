@@ -3,12 +3,16 @@
 #include"logic.h"
 #include"renderer.h"
 #include "raylib.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 int offset_x=100;    // ***Defined in tetris_main.c by Srijato
 int offset_y=50;    // ***Defined in tetris_main.c by Srijato
 
-#define timeDelay 500 //timeDelay is set to 500 ms
+double timeDelay = 250.00; //timeDelay is set to 250 ms
 #define GameState enum GameState
-float frame_time = 60;
+float frame_time = 90;  // Game Engine runs at 90 FPS (~ 11.1 ms per frame)
 
 double lastTime=0;
 
@@ -16,10 +20,11 @@ GameState gstate;
 GameStats gamestats;
 
 void handleGravity(){
+    int lastlevel = gamestats.level;
     double currentTime = GetTime() * 1000.0;
     if((currentTime-lastTime)>=timeDelay){//after a certain time the tetromino falls a certain distance 
         if(isValidMove(current_piece,0,1,current_piece.rotation)){//check if block can move one down
-            current_piece.y++;//y increases downwards 
+            current_piece.y++;//y increases downwards
         }
         else{
             LockPiece(current_piece);
@@ -28,6 +33,10 @@ void handleGravity(){
             CheckGameOver();
         }
         lastTime = currentTime;
+        if (gamestats.level > lastlevel)    // decrease timeDelay for each level increase by factor of 0.75
+            timeDelay = 0.75 * timeDelay;
+        if (timeDelay < 11.1)   // Set baseline limit for timeDelay (@ 11.1 ms AS THE LOWEST ALLOWED)
+            timeDelay = 11.1;
     }
 }
 
@@ -59,6 +68,7 @@ void renderFrame(){//i will define it now
     }
 
 int main(){
+    srand(time(NULL));
     InitWindow(1000,1000,"Tetris");//initializes the tetris window 
     SetTargetFPS(frame_time);//frames per second
 
@@ -66,6 +76,7 @@ int main(){
     InitStartPiece();
     
     lastTime = GetTime()*1000.0;
+    int scoresaved = 0; // false
     while(!WindowShouldClose()){
     switch(gstate){//logic part
     case MENU:
@@ -74,12 +85,25 @@ int main(){
     case PLAYING:
         PlayerInputControl();
         handleGravity();
+        //scoresaved = 0; // reset for next play
         break;
     case PAUSED:
         PlayerInputControl();
         break;
     case GAMEOVER:
-        MenuInputControl(); //returns to menu when gameover 
+        MenuInputControl(); //returns to menu when gameover
+        /*// Write to record file (not working properly)
+        if (scoresaved == 0)
+        {
+            time_t savetime1 = time(NULL);
+            struct tm *savetime2 = localtime(&savetime1);
+            char savetime3[22];
+            strftime(savetime3, 20, "%d-%m-%Y   %H:%M:%S", savetime2);
+            FILE *rec = fopen("resources/record.txt", "a");
+            fprintf(rec, "%s    %d      %d\n", savetime3, gamestats.score, gamestats.level);
+            fclose(rec);
+            scoresaved = 1;
+        }*/
         break;
     }
     renderFrame();//UI part refreshes every frame
