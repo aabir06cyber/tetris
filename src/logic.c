@@ -17,22 +17,6 @@ const int shapes[7][4][4][4] = {
         {{0,0,0,0}, {0,0,0,0}, {1,1,1,1}, {0,0,0,0}},
         {{0,1,0,0}, {0,1,0,0}, {0,1,0,0}, {0,1,0,0}}
     },
-    // Piece: O
-    {
-        // State 0, 1, 2, 3 respectively
-        {{0,0,0,0}, {0,1,1,0}, {0,1,1,0}, {0,0,0,0}},
-        {{0,0,0,0}, {0,1,1,0}, {0,1,1,0}, {0,0,0,0}},
-        {{0,0,0,0}, {0,1,1,0}, {0,1,1,0}, {0,0,0,0}},
-        {{0,0,0,0}, {0,1,1,0}, {0,1,1,0}, {0,0,0,0}}
-    },
-    // Piece: T
-    {
-        // States 0, 1, 2, 3 respectively
-        {{0,0,0,0}, {0,1,0,0}, {1,1,1,0}, {0,0,0,0}},
-        {{0,0,0,0}, {0,1,0,0}, {0,1,1,0}, {0,1,0,0}},
-        {{0,0,0,0}, {0,0,0,0}, {1,1,1,0}, {0,1,0,0}},
-        {{0,0,0,0}, {0,1,0,0}, {1,1,0,0}, {0,1,0,0}}
-    },
     // Piece: J
     {
         // States 0, 1, 2, 3 respectively
@@ -49,6 +33,14 @@ const int shapes[7][4][4][4] = {
         {{0,0,0,0}, {1,1,1,0}, {1,0,0,0}, {0,0,0,0}},
         {{1,1,0,0}, {0,1,0,0}, {0,1,0,0}, {0,0,0,0}}
     },
+    // Piece: O
+    {
+        // State 0, 1, 2, 3 respectively
+        {{0,0,0,0}, {0,1,1,0}, {0,1,1,0}, {0,0,0,0}},
+        {{0,0,0,0}, {0,1,1,0}, {0,1,1,0}, {0,0,0,0}},
+        {{0,0,0,0}, {0,1,1,0}, {0,1,1,0}, {0,0,0,0}},
+        {{0,0,0,0}, {0,1,1,0}, {0,1,1,0}, {0,0,0,0}}
+    },
     // Piece: S
     {
         // States 0, 1, 2, 3 respectively
@@ -56,6 +48,14 @@ const int shapes[7][4][4][4] = {
         {{0,1,0,0}, {0,1,1,0}, {0,0,1,0}, {0,0,0,0}},
         {{0,0,0,0}, {0,1,1,0}, {1,1,0,0}, {0,0,0,0}},
         {{1,0,0,0}, {1,1,0,0}, {0,1,0,0}, {0,0,0,0}}
+    },
+    // Piece: T
+    {
+        // States 0, 1, 2, 3 respectively
+        {{0,0,0,0}, {0,1,0,0}, {1,1,1,0}, {0,0,0,0}},
+        {{0,0,0,0}, {0,1,0,0}, {0,1,1,0}, {0,1,0,0}},
+        {{0,0,0,0}, {0,0,0,0}, {1,1,1,0}, {0,1,0,0}},
+        {{0,0,0,0}, {0,1,0,0}, {1,1,0,0}, {0,1,0,0}}
     },
     // Piece:Z
     {
@@ -176,11 +176,11 @@ void LockPiece(Tetromino piece)
             {
                 boardX = curr_x + j;    // Important!!!
                 boardY = curr_y + i;
-                if (boardY < 20)    // If any part of the piece is above the visible area when locked, it's game over
+                /*if (boardY < 20)    // If any part of the piece is above the visible area when locked, it's game over
                 {
                     gstate = GAMEOVER;  // Global "enum GameState" type variable is set to GAMEOVER
                     return;
-                }
+                }*/
                 board[boardY][boardX] = piece.type + 1;
                 // While colouring, just subtract 1 to get original piece type and colour accordingly [Drawing]
             }
@@ -264,8 +264,16 @@ void SpawnNext()
 {
     current_piece = next_piece;
     current_piece.rotation = 0;
-    current_piece.x = 3;
-    current_piece.y = 18;
+    if (current_piece.type == I || current_piece.type == O)
+    {
+        current_piece.x = 3;
+        current_piece.y = 18;
+    }
+    else
+    {
+        current_piece.x = 0;
+        current_piece.y = 18;
+    }
     next_piece.type = GenerateRandomPieceType();
 }
 
