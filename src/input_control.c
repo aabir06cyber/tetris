@@ -50,7 +50,7 @@ void PlayerInputControl()
         if(IsKeyPressed(R)){
             dasTimer = 0;
             arrTimer = 0;
-        if(isValidMove(current_piece,1,0,current_piece.rotation)){
+            if(isValidMove(current_piece,1,0,current_piece.rotation)){
             current_piece.x++;
         }
         }
@@ -80,7 +80,7 @@ void PlayerInputControl()
                 SRS(&current_piece,1);
                 dasrotTimer=0;
             }
-            }
+        }
         if(IsKeyReleased(C)){
             dasrotTimer = 0;
         }
@@ -145,7 +145,7 @@ void PlayerInputControl()
     if(IsKeyPressed(KEY_Q)){
         gstate = GAMEOVER;
         GameStatsDisplay();
-        if(IsKeyPressed(KEY_ENTER)) gstate = MENU;
+        //if(IsKeyPressed(KEY_ENTER)) gstate = MENU;
         //display score and go to menu after acknowledgement
     }
 }

@@ -13,6 +13,7 @@ int offset_y=50;    // ***Defined in tetris_main.c by Srijato
 double timeDelay = 250.00; //timeDelay is set to 250 ms
 #define GameState enum GameState
 float frame_time = 90;  // Game Engine runs at 90 FPS (~ 11.1 ms per frame)
+static int lockdelay = 0;
 
 double lastTime=0;
 
@@ -22,17 +23,24 @@ GameStats gamestats;
 void handleGravity(){
     int lastlevel = gamestats.level;
     double currentTime = GetTime() * 1000.0;
-    if((currentTime-lastTime)>=timeDelay){//after a certain time the tetromino falls a certain distance 
-        if(isValidMove(current_piece,0,1,current_piece.rotation)){//check if block can move one down
+    if ((currentTime - lastTime) >= timeDelay){//after a certain time the tetromino falls a certain distance 
+        if (isValidMove(current_piece,0,1,current_piece.rotation))  //check if block can move one down
+        {
             current_piece.y++;//y increases downwards
+            lockdelay = 0;  // reset lockdelay if user makes any valid move before locking
         }
-        else{
-            LockPiece(current_piece);
-            ClearFullRows();
-            SpawnNext();
-            CheckGameOver();
+        else
+        {
+            if (lockdelay >= 2)    // lock after 0.5sec (0.25s x 2 = 0.5) [lock delay]
+            {
+                LockPiece(current_piece);
+                ClearFullRows();
+                SpawnNext();
+                CheckGameOver();
+            }
         }
         lastTime = currentTime;
+        lockdelay += 1; // increase lockdelay by 1
         if (gamestats.level > lastlevel)    // decrease timeDelay for each level increase by factor of 0.75
             timeDelay = 0.75 * timeDelay;
         if (timeDelay < 11.1)   // Set baseline limit for timeDelay (@ 11.1 ms AS THE LOWEST ALLOWED)
