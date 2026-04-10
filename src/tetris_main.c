@@ -10,9 +10,9 @@
 int offset_x=100;    // ***Defined in tetris_main.c by Srijato
 int offset_y=50;    // ***Defined in tetris_main.c by Srijato
 
-double timeDelay = 250.00; //timeDelay is set to 250 ms
+double timeDelay = 500.00; //timeDelay is set to 500 ms
 #define GameState enum GameState
-float frame_time = 90;  // Game Engine runs at 90 FPS (~ 11.1 ms per frame)
+float frame_time = 60;  // Game Engine runs at 60 FPS (~ 16.667 ms per frame)
 static int lockdelay = 0;
 
 double lastTime=0;
@@ -40,12 +40,12 @@ void handleGravity(){
             }
         }
         lastTime = currentTime;
-        lockdelay += 1; // increase lockdelay by 1
         if (gamestats.level > lastlevel)    // decrease timeDelay for each level increase by factor of 0.75
             timeDelay = 0.75 * timeDelay;
-        if (timeDelay < 11.1)   // Set baseline limit for timeDelay (@ 11.1 ms AS THE LOWEST ALLOWED)
-            timeDelay = 11.1;
+        if (timeDelay < 16.667)   // Set baseline limit for timeDelay (@ 16.667 ms AS THE LOWEST ALLOWED)
+            timeDelay = 16.667;
     }
+    lockdelay += 1; // increase lockdelay by 1
 }
 
 void renderFrame(){//i will define it now
