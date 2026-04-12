@@ -206,7 +206,7 @@ int ClearFullRows()
         {
             cleared += 1;
             // SHIFT DOWN ROWS AFTER CLEARING
-            for(int sdr = i; sdr >= 0; sdr--)  // "sdr" = "shift down row"
+            for(int sdr = i; sdr > 0; sdr--)  // "sdr" = "shift down row"
             {
                 for(int sdc = 0; sdc < 10; sdc++)   // "sdc" = "shift down column"
                 {
@@ -264,16 +264,8 @@ void SpawnNext()
 {
     current_piece = next_piece;
     current_piece.rotation = 0;
-    if (current_piece.type == I || current_piece.type == O)
-    {
-        current_piece.x = 3;
-        current_piece.y = 18;
-    }
-    else
-    {
-        current_piece.x = 0;
-        current_piece.y = 18;
-    }
+    current_piece.x = 3;
+    current_piece.y = 18;
     next_piece.type = GenerateRandomPieceType();
 }
 

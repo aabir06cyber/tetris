@@ -21,7 +21,7 @@ GameState gstate;
 GameStats gamestats;
 
 void handleGravity(){
-    int lastlevel = gamestats.level;
+    static int lastlevel = 1;
     double currentTime = GetTime() * 1000.0;
     if ((currentTime - lastTime) >= timeDelay){//after a certain time the tetromino falls a certain distance 
         if (isValidMove(current_piece,0,1,current_piece.rotation))  //check if block can move one down
@@ -31,7 +31,7 @@ void handleGravity(){
         }
         else
         {
-            if (lockdelay >= 2)    // lock after 0.5sec (0.25s x 2 = 0.5) [lock delay]
+            if (lockdelay >= 1)    // lock after 0.5sec [lock delay]
             {
                 LockPiece(current_piece);
                 ClearFullRows();
@@ -41,7 +41,10 @@ void handleGravity(){
         }
         lastTime = currentTime;
         if (gamestats.level > lastlevel)    // decrease timeDelay for each level increase by factor of 0.75
+        {
             timeDelay = 0.75 * timeDelay;
+            lastlevel = gamestats.level;
+        }
         if (timeDelay < 16.667)   // Set baseline limit for timeDelay (@ 16.667 ms AS THE LOWEST ALLOWED)
             timeDelay = 16.667;
     }
@@ -70,6 +73,7 @@ void renderFrame(){//i will define it now
             break;
         case GAMEOVER:
             DrawGameOver();
+            timeDelay = 500.00;
             break;
     }
     EndDrawing();
@@ -77,7 +81,7 @@ void renderFrame(){//i will define it now
 
 int main(){
     srand(time(NULL));
-    InitWindow(1000,1000,"Tetris");//initializes the tetris window 
+    InitWindow(900,900,"Tetris");//initializes the tetris window 
     SetTargetFPS(frame_time);//frames per second
 
     InitBoard();
