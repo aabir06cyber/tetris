@@ -429,11 +429,11 @@ void DrawMenu()
 {
     DrawText("TETRIS", 280, 120, 70, YELLOW);
     DrawText("Press ENTER to Start", 220, 250, 35, WHITE);
-    DrawText("Arrow Keys to Move", 230, 320, 28, LIGHTGRAY);
-    DrawText("UP to ClockwiseRotate", 280, 360, 28, LIGHTGRAY);
-    DrawText("Z to AntiRotate", 280, 420, 28, LIGHTGRAY);
-    DrawText("P to Pause", 300, 480, 28, LIGHTGRAY);
-    DrawText("Q to Quit", 310, 540, 28, LIGHTGRAY);
+    DrawText("Arrow Keys to Move", 280, 320, 28, LIGHTGRAY);
+    DrawText("UP to Clockwise Rotate", 280, 360, 28, LIGHTGRAY);
+    DrawText("Z to Anti-clockwise Rotate", 280, 420, 28, LIGHTGRAY);
+    DrawText("P to Pause/Resume", 280, 480, 28, LIGHTGRAY);
+    DrawText("Q to Quit", 280, 540, 28, LIGHTGRAY);
 
 }
 
