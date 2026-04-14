@@ -153,8 +153,11 @@ void PlayerInputControl()
 //
 
 void MenuInputControl(){
-    if(IsKeyPressed(KEY_ENTER)){// to start
-        gstate = PLAYING;
+    if(IsKeyPressed(KEY_ENTER)){
+        if (gstate == GAMEOVER) // to go to menu after GAMEOVER screen
+            gstate = MENU;
+        else
+            gstate = PLAYING;   // to start game
     }
     if(IsKeyPressed(KEY_R)){ //Game is being restarted
         InitBoard();
