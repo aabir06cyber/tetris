@@ -150,8 +150,6 @@ void PlayerInputControl()
     }
 }
 
-//
-
 void MenuInputControl(){
     if(IsKeyPressed(KEY_ENTER)){
         if (gstate == GAMEOVER) // to go to menu after GAMEOVER screen
