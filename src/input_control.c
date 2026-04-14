@@ -152,8 +152,12 @@ void PlayerInputControl()
 
 void MenuInputControl(){
     if(IsKeyPressed(KEY_ENTER)){
-        if (gstate == GAMEOVER) // to go to menu after GAMEOVER screen
+        if (gstate == GAMEOVER){ // to go to menu after GAMEOVER screen
             gstate = MENU;
+            InitBoard();
+            gamestats.score = gamestats.lines_cleared = 0 ;
+            gamestats.level = 1;
+        }
         else
             gstate = PLAYING;   // to start game
     }
