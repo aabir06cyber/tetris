@@ -25,6 +25,8 @@ THIS IS A STUDENT PROJECT, DEVELOPED AS A CLASS ASSIGNMENT -
 	-> www.harddrop.com (for SRS implementation)
 	-> www.gamedev.stackexchange.com
 	-> www.tetris.wiki (for Scoring guidelines)
+	-> Raylib examples: ([https://www.raylib.com/examples.html](https://www.raylib.com/examples.html))
+	-> Wikipedia
 	
 	-> YouTube: https://www.youtube.com/watch?v=wVYKG_ch4yM (Programming with Nick)
 		          https://www.youtube.com/watch?v=dgt1kWq2_7c (Superclass)
@@ -62,7 +64,6 @@ THIS IS A STUDENT PROJECT, DEVELOPED AS A CLASS ASSIGNMENT -
 
 ### The default FPS of the game is set at 60 FPS and initial drop interval of tetrominos is set to 500 ms.
 
-####
-=======================================================================================
-                            LICENSED UNDER GNU GPL 3.0
+#### ======================================================================================
+###  LICENSED UNDER GNU GPL 3.0
 =======================================================================================
