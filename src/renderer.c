@@ -452,4 +452,5 @@ void DrawGameOver()
     DrawText("GAME OVER", 220, 220, 60, RED);
     DrawText(TextFormat("Final Score: %d", gamestats.score), 250, 320, 35, WHITE);
     DrawText("Press R to Restart", 190, 400, 35, YELLOW);
+    DrawText("Press ENTER for Menu", 190, 460, 35, GREEN);
 }
