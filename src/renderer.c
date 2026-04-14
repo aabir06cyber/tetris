@@ -3,12 +3,12 @@
 #include "raylib.h"
 #include <stdio.h>
 
-// ------------------------------------------------------------
+
 // SHAPE DATA
 // Each tetromino has 4 rotation states
 // Each rotation is a 4x4 matrix
 // 1 = block exists, 0 = empty
-// ------------------------------------------------------------
+
 
 /*int shapes[7][4][4][4] = {
     // I
@@ -430,8 +430,11 @@ void DrawMenu()
     DrawText("TETRIS", 280, 120, 70, YELLOW);
     DrawText("Press ENTER to Start", 220, 250, 35, WHITE);
     DrawText("Arrow Keys to Move", 230, 320, 28, LIGHTGRAY);
-    DrawText("UP to Rotate", 280, 360, 28, LIGHTGRAY);
-    DrawText("P to Pause", 300, 400, 28, LIGHTGRAY);
+    DrawText("UP to ClockwiseRotate", 280, 360, 28, LIGHTGRAY);
+    DrawText("Z to AntiRotate", 280, 420, 28, LIGHTGRAY);
+    DrawText("P to Pause", 300, 480, 28, LIGHTGRAY);
+    DrawText("Q to Quit", 310, 540, 28, LIGHTGRAY);
+
 }
 
 
